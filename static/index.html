@@ -46,7 +46,7 @@
             conn.onerror = ws.open = ws.onclose = null;
             conn.close();
           }
-          conn = new WebSocket("ws://" + "localhost:8080" + "/ws");
+          conn = new WebSocket("ws://" + document.location.host + "/ws");
 
           conn.onopen = () => {
             console.log("Connection opened");
