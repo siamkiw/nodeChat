@@ -5,14 +5,19 @@ const {WebSocketServer} = require("ws")
 const port = 5555
 const wss1 = new WebSocketServer({ noServer: true });
 
-wss1.on('connection', function connection(ws) {
+wss1.on('connection', function connection(ws, req) {
     // do some thing
     console.log("on connection")
 
     ws.on('message', function incoming(data) {
         wss1.clients.forEach(function each(client) {
             let str = new TextDecoder().decode(data); 
-            client.send(str);
+            const obj = {
+                ip : req.connection.remoteAddress,
+                message : str
+            }
+            
+            client.send(JSON.stringify(obj));
         //   if (client !== ws && client.readyState === WebSocket.OPEN) {
         //     client.send(data);
         //   }

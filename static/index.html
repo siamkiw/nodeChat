@@ -68,7 +68,8 @@
         };
 
         function onGetMessage(message) {
-          containerChat.innerHTML += `<p>${displayName} : ${message}</p>`;
+          res = JSON.parse(message);
+          containerChat.innerHTML += `<p>${res.ip} : ${res.message}</p>`;
           containerChat.scrollTop = containerChat.scrollHeight;
         }
 
