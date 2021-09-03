@@ -1,5 +1,5 @@
-IMAGE_NAME="node_chat_image"
-CONTAINER_NAME="node_chat_container"
+IMAGE_NAME="node_chat_image_siam"
+CONTAINER_NAME="node_chat_container_siam"
 TAG="lastets"
 PUB_PORT=5555
 PRI_PORT=5555
